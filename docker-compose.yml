@@ -3,7 +3,9 @@ version: '3.8'
 services:
   # Dịch vụ PHP
   php:
-    image: php:8.1-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: php-server
     volumes:
       - ./src:/var/www/html
@@ -14,7 +16,7 @@ services:
 
   # Dịch vụ MySQL
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: mysql-server
     environment:
       MYSQL_ROOT_PASSWORD: 123456789
