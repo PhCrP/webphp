@@ -57,12 +57,13 @@ function insertTG(int $id, string $ten, int $tuoi, string $qq)
         $st = $con->prepare($sqlInsertTG);
         $st->bind_param("isis", $id, $ten, $tuoi, $qq);
         $st->execute();
-        $st->close();
-        $con->close();
         header("Location: index.php");
         exit;
     } catch (mysqli_sql_exception $e) {
         echo "Lỗi: " . $e->getMessage();
+    } finally {
+        if (isset($con)) $con->close();
+        if (isset($st)) $st->close();
     }
 }
 
