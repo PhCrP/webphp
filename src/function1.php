@@ -3,7 +3,7 @@ function getCon()
 {
     $con = null;
     try {
-        $con = new mysqli("mysql-server", "root", "123456789", "QL");
+        $con = new mysqli("sql206.infinityfree.com", "if0_37679986", "6FqZOjYoxy09sy", "if0_37679986_ql");
     } catch (mysqli_sql_exception $e) {
         echo "Lỗi kết nối: " . $e->getMessage();
     }
